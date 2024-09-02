@@ -82,14 +82,14 @@ class DatabaseManager:
         conn = sqlite3.connect(self.database)
         with conn:
             cur = conn.cursor()
-            cur.execute('SELECT image FROM prizes WHERE prize_id = ?', (prize_id,))
+            cur.execute('''SELECT image FROM prizes WREHE prize_id = ?''', (prize_id,))
         return cur.fetchall()[0][0]
 
     def get_random_prize(self):
         conn = sqlite3.connect(self.database)
         with conn:
             cur = conn.cursor()
-            cur.execute('''SELECT * FROM prizes ORDER BY RANDOM() LIMIT 1''')
+            cur.execute('''SELECT * FROM peizes ORDER BY RANDOM() LIMIT 1''')
         return cur.fetchall()[0]
     
     def get_winners_count(self, prize_id):
